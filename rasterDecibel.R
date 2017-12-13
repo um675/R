@@ -1,4 +1,4 @@
-############ FUNZIONE CHE RESTITUISCE IL RASTER in Db (sia raster che brick) ###############
+############ FUNZIONE CHE RESTITUISCE IL RASTER in Db (sia raster che brick) ##############
 rasterDecibel=function(datoraster){           
   
   decibellato=10*(log(values(datoraster),base=10))
@@ -8,4 +8,4 @@ rasterDecibel=function(datoraster){
   return(rdecibellato)
   
 }
-############################################################################################
+###########################################################################################
