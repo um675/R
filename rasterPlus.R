@@ -14,7 +14,7 @@ library(tiff)
 
 
 setClass("RasterPlus",
-         representation(r1="RasterLayer",r2="RasterLayer",t1="numeric",t2="numeric")
+         representation(rast="RasterLayer",maschera="RasterLayer",t1="numeric",t2="numeric")
 )
 
 setGeneric("maskApply",
@@ -24,8 +24,8 @@ setGeneric("maskApply",
 
 setMethod("maskApply","RasterPlus",
           function(x){
-            mask=x@r1
-            victim=x@r2
+            mask=x@maschera
+            victim=x@rast
             result=victim
             values(result)=values(victim)*values(mask)
             return(result)
@@ -41,7 +41,7 @@ setGeneric("maskOUT",
 
 setMethod("maskOUT","RasterPlus",
           function(x){
-            ORraster=x@r2
+            ORraster=x@rast
             tr1=x@t1
             tr2=x@t2
             indici=which((values(ORraster)<tr1) | (values(ORraster)>tr2))
